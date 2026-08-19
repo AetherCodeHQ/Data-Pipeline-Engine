@@ -23,12 +23,12 @@ Every developer needs data pipeline engine — but existing tools are either too
 
 ## Features
 
-- **Visual pipeline builder** — Visual pipeline builder
-- **Multiple data source support** — Multiple data source support
-- **Transformation engine** — Transformation engine
-- **Scheduling and orchestration** — Scheduling and orchestration
-- **Monitoring and alerting** — Monitoring and alerting
-- **CLI management** — CLI management
+- Visual pipeline builder
+- Multiple data source support
+- Transformation engine
+- Scheduling and orchestration
+- Monitoring and alerting
+- CLI management
 
 ## Quick Start
 
