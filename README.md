@@ -1,153 +1,91 @@
 # Data Pipeline Engine
 
-Build and manage data pipelines with ease - ETL, streaming, and batch processing.
+![CI](https://github.com/Qyroxen/Data-Pipeline-Engine/actions/workflows/ci.yml/badge.svg) ![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?style=flat&logo=go) ![License](https://img.shields.io/badge/License-MIT-yellow.svg) ![Stars](https://img.shields.io/github/stars/Qyroxen/Data-Pipeline-Engine?style=social)
 
-[![Go Version](https://img.shields.io/badge/Go-1.23%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![CI](https://github.com/Qyroxen/data-pipeline-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/Qyroxen/data-pipeline-engine/actions/workflows/ci.yml)
+> Build and run data pipelines with a simple YAML configuration
 
-> Build and manage data pipelines with ease - ETL, streaming, and batch processing.
+[![Star Badge](https://img.shields.io/github/stars/Qyroxen/Data-Pipeline-Engine?style=social)](https://github.com/Qyroxen/Data-Pipeline-Engine/stargazers)
 
 ## What is it?
 
-Data Pipeline Engine is a command-line tool built with Go that helps developers build and manage data pipelines with ease - etl, streaming, and batch processing. It's designed to be fast, reliable, and easy to use.
+Data Pipeline Engine lets you define data transformations in YAML and run them as efficient Go pipelines.
 
-## Why?
+## Why should you care?
 
-Every developer needs data pipeline engine — but existing tools are either too complex, too slow, or require cloud dependencies. We built Data Pipeline Engine to be:
-- **Fast** — Written in Go for maximum performance
-- **Offline** — No cloud dependencies, your data stays on your machine
-- **Simple** — Clean CLI interface with sensible defaults
-- **Extensible** — Easy to customize and integrate into your workflow
+ETL processes are complex. This tool makes them simple with YAML configuration.
+
+## Demo
+
+```bash
+./data-pipeline run --config pipeline.yaml
+```
+
+**Output:**
+```
+Pipeline completed:
+  - 10,000 records processed
+  - 3 transformations applied
+  - Output: output.csv
+```
 
 ## Features
 
-- Visual pipeline builder
-- Multiple data source support
-- Transformation engine
-- Scheduling and orchestration
-- Monitoring and alerting
-- CLI management
+- YAML-based pipeline definition
+- Parallel processing
+- Error handling and retries
+- Multiple data sources
+- Monitoring and logging
 
 ## Quick Start
 
-### Prerequisites
-
-- Go 1.23 or later
-
-### Install
-
 ```bash
-# Install with go install
-go install github.com/Qyroxen/data-pipeline-engine@latest
+# Install
+git clone https://github.com/Qyroxen/Data-Pipeline-Engine.git
+cd Data-Pipeline-Engine
+go build -o data-pipeline .
 
-# Or build from source
-git clone https://github.com/Qyroxen/data-pipeline-engine.git
-cd data-pipeline-engine
-go build -o data-pipeline-engine .
-```
-
-### Usage
-
-```bash
-# Basic usage
-.data-pipeline-engine --help
-
-# Example
-./data-pipeline-engine create --name etl-pipeline --source csv --dest postgres
-```
-
-## Output
-
-```
-Data Pipeline Engine v1.0.0
-
-Scanning...
-
-✓ Analysis complete
-✓ Results ready
-
-{
-  "status": "success",
-  "results": [...]
-}
-```
-
-## Configuration
-
-Create a `.config.yaml` file in your project root:
-
-```yaml
-# Configuration options
-verbose: true
-output: json
-timeout: 30s
+# Run
+./data-pipeline --config pipeline.yaml
 ```
 
 ## CLI Flags
 
-```
-data pipeline engine [command]
-
-Flags:
-  --path string      Target path (default ".")
-  --format string    Output format: json, text (default "text")
-  --verbose          Enable verbose output
-  --config string    Config file path
-  --output string    Output file path
-```
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--config` | Pipeline config file | `pipeline.yaml` |
+| `--dry-run` | Validate without running | `false` |
+| `--parallel` | Parallel workers | `4` |
+| `--retry` | Retry failed steps | `3` |
 
 ## Examples
 
-### Basic Example
+# Run pipeline
+./data-pipeline run --config pipeline.yaml
 
-```bash
-.data-pipeline-engine --path ./src
-```
+# Dry run
+./data-pipeline run --config pipeline.yaml --dry-run
 
-### Advanced Example
-
-```bash
-.data-pipeline-engine --path ./src --format json --output report.json --verbose
-```
-
-### CI/CD Integration
-
-```yaml
-# .github/workflows/ci.yml
-- name: Run Data Pipeline Engine
-  run: |
-    go install github.com/Qyroxen/data-pipeline-engine@latest
-    data-pipeline-engine --path . --format json --output report.json
-```
-
-## Documentation
-
-- [Getting Started](docs/getting-started.md)
-- [Configuration](docs/configuration.md)
-- [API Reference](docs/api-reference.md)
-- [Examples](examples/)
-- [Contributing](CONTRIBUTING.md)
+# With parallelism
+./data-pipeline run --config pipeline.yaml --parallel 8
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Author
-
-**Qyroxen** - [GitHub](https://github.com/Qyroxen)
-
 ---
 
-**Found this useful?** Give it a ⭐ on GitHub!
+<p align="center">
+  <a href="https://github.com/Qyroxen/Data-Pipeline-Engine/stargazers">
+    <img src="https://img.shields.io/github/stars/Qyroxen/Data-Pipeline-Engine?style=social" alt="Star this repo">
+  </a>
+  <a href="https://github.com/Qyroxen/Data-Pipeline-Engine/network/members">
+    <img src="https://img.shields.io/github/forks/Qyroxen/Data-Pipeline-Engine?style=social" alt="Fork this repo">
+  </a>
+  <a href="https://github.com/Qyroxen/Data-Pipeline-Engine/issues">
+    <img src="https://img.shields.io/github/issues/Qyroxen/Data-Pipeline-Engine" alt="Issues">
+  </a>
+</p>
