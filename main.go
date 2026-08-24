@@ -1,26 +1,29 @@
+
 package main
 
 import (
 	"fmt"
 	"os"
+	"path/filepath"
+	"strings"
 )
 
-// data_pipeline_engine - Build data pipelines
-func data_pipeline_engine(path string) {
-	fmt.Println("========================================")
-	fmt.Println("  Data-Pipeline-Engine")
-	fmt.Println("  Build data pipelines")
-	fmt.Println("========================================")
-	fmt.Println()
-	fmt.Println("Target:", path)
-	fmt.Println("Processing...")
-	fmt.Println("Done!")
-}
-
 func main() {
-	path := "."
+	dir := "."
 	if len(os.Args) > 1 {
-		path = os.Args[1]
+		dir = os.Args[1]
 	}
-	data_pipeline_engine(path)
+	var n int
+	filepath.Walk(dir, func(p string, info os.FileInfo, err error) error {
+		if err != nil || info.IsDir() {
+			return nil
+		}
+		if strings.HasPrefix(info.Name(), ".") {
+			return nil
+		}
+		n++
+		fmt.Println(p)
+		return nil
+	})
+	fmt.Printf("%d file(s)\n", n)
 }
