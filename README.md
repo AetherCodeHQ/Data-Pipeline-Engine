@@ -1,165 +1,91 @@
-# 📊 Data Pipeline Engine
+# 🔧 Data Pipeline Engine
 
-![Go](https://img.shields.io/badge/Go-1.21%2B-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-00ADD8?style=for-the-badge)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![CodeQL](https://img.shields.io/badge/CodeQL-Security-00ADD8?style=for-the-badge)
-![Lint](https://img.shields.io/badge/GolangCI--Lint-Passing-00ADD8?style=for-the-badge)
-![Dependabot](https://img.shields.io/badge/Dependabot-Enabled-025E9C?style=for-the-badge&logo=dependabot&logoColor=white)
+![Go](https://img.shields.io/badge/Go-1.21%2B-00ADD8?style=flat-square&logo=go&logoColor=white)
+![Version](https://img.shields.io/badge/Version-v2.0.0-00ADD8?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![PRs](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)
 
-> Data-Pipeline-Engine - Open source tool by AetherCodeHQ
+> Tool tool by [AetherCodeHQ](https://github.com/AetherCodeHQ)
 
-`cli` `data` `etl` `golang` `open-source` `pipeline`
+`cli` `utilities` `golang` `io`
 
-## What is it?
+---
 
-**Data Pipeline Engine** is a data tool designed for developers who need fast, reliable, and offline-capable tools. Built with Go for maximum performance and minimal resource usage.
+## What is Data-Pipeline-Engine?
 
-## Why should you care?
+**Data-Pipeline-Engine** is a CLI tool built with Go for fast, offline-capable operations.
 
-- 🚀 **Fast** — Compiled Go binary, no runtime dependencies
-- 🔒 **Secure** — CodeQL security analysis + Dependabot
-- 🌐 **Offline-first** — Works without internet connection
-- 📦 **Lightweight** — Single binary, minimal footprint
-- 🛠️ **Developer-friendly** — Clean CLI with helpful documentation
+## Features
 
-## Quick Start
+- ✅ Streaming file processing
+- 🚀 **Zero dependencies** — only Go standard library
+- 📦 **Single binary** — compile and run anywhere
+- 🔄 **Offline capable** — no internet required
 
-### Prerequisites
-- Go 1.21 or higher
+## Installation
 
-### Install from source
 ```bash
+# Clone
 git clone https://github.com/AetherCodeHQ/Data-Pipeline-Engine.git
 cd Data-Pipeline-Engine
-go build -o Data-Pipeline-Engine .
+
+# Build
+go build -o data-pipeline-engine .
+
+# Run
+./data-pipeline-engine Usage: data-pipeline <input.csv>
 ```
 
-### Run
+### Or directly with `go run`:
 ```bash
-./Data-Pipeline-Engine --help
+go run main.go Usage: data-pipeline <input.csv>
 ```
 
 ## Usage
 
 ```bash
 # Basic usage
-./Data-Pipeline-Engine --path ./target
+./data-pipeline-engine Usage: data-pipeline <input.csv>
 
-# With options
-./Data-Pipeline-Engine --path ./target --format json --output report.json
-
-# Verbose mode
-./Data-Pipeline-Engine --path ./target --verbose
+# With flags
+./data-pipeline-engine Usage: data-pipeline <input.csv> value Usage: data-pipeline <input.csv>
 ```
 
-## Features
+### Example Output
 
-- ✅ High-performance Go implementation
-- ✅ Cross-platform support (Windows, Linux, macOS)
-- ✅ JSON export for CI/CD integration
-- ✅ Colored terminal output
-- ✅ Configurable via YAML/JSON
-- ✅ Comprehensive documentation
-
-## CLI Flags
-
-| Flag | Description | Default |
-|------|-------------|---------|
-| `--path` | Target directory | `.` |
-| `--format` | Output format (json, text, badge) | `text` |
-| `--output` | Output filename | `stdout` |
-| `--verbose` | Enable verbose output | `false` |
-| `--config` | Config file path | - |
-
-## Examples
-
-### Basic scan
-```bash
-./Data-Pipeline-Engine --path ./my-project
+```
+$ ./data-pipeline-engine Usage: data-pipeline <input.csv>
+Usage: data-pipeline <input.csv>
+Pipeline: Extract -> Transform -> Validate -> Load
+Error:
 ```
 
-### JSON report
-```bash
-./Data-Pipeline-Engine --path ./my-project --format json --output report.json
+## Project Structure
+
 ```
-
-### CI/CD integration
-```yaml
-# .github/workflows/scan.yml
-- name: Run Data Pipeline Engine
-  run: ./Data-Pipeline-Engine --path . --format json --output report.json
-```
-
-## Development
-
-```bash
-# Clone the repo
-git clone https://github.com/AetherCodeHQ/Data-Pipeline-Engine.git
-cd Data-Pipeline-Engine
-
-# Build
-go build -o Data-Pipeline-Engine .
-
-# Run tests
-go test ./...
-
-# Lint
-golangci-lint run
+Data-Pipeline-Engine/
+  main.go          # Entry point (52 lines)
+  go.mod            # Go module definition
+  go.sum            # Dependency checksums
+  README.md         # This file
+  LICENSE           # MIT License
+  CHANGELOG.md      # Version history
 ```
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
-## Security
-
-If you discover a security vulnerability, please report it responsibly. See [SECURITY.md](SECURITY.md) for details.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-<p align="center">
-  Built with ❤️ by <a href="https://github.com/AetherCodeHQ">AetherCode</a> • <a href="https://github.com/AetherCode-Core">AetherCode-Core</a>
-</p>
-
-
----
-
-## What's New in v1.1.0
-
-- Professional documentation with badges
-- CI/CD pipeline with GitHub Actions
-- Security analysis with CodeQL
-- Dependency management with Dependabot
-- Code quality with GolangCI-Lint
-- Issue and PR templates
-- Contributing guidelines
-
-## Categories
-
-| Category | Description |
-|----------|-------------|
-| Data Processing & Analytics | This project is part of the AetherCode ecosystem |
-
-## Related Projects
-
-Part of [AetherCode Core](https://github.com/AetherCode-Core) ecosystem.
-
----
-## Changelog
-### v2026.08.23-2208
-- Auto updated
-- Tag: `v2026.08.23-2208`
-
-![Version](https://img.shields.io/badge/Version-v2.0.0-00ADD8?style=for-the-badge)
-
-
-## What's new in v2.0.0
-
-- Clean CLI with subcommands
-- Robust error handling
-- Fast, standard-library-only implementation
+Built with ❤️ by [AetherCodeHQ](https://github.com/AetherCodeHQ)
